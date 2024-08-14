@@ -1,0 +1,32 @@
+class kitAdapter(private val kitArrayList: ArrayList<kits>,private val context: Context,private val onClick: OnClick) : RecyclerView.Adapter<kitAdapter.ViewHolder>() {
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        val binding = KitsLayoutBinding.inflate(LayoutInflater.from(parent.context),parent,false)
+        return ViewHolder(binding)
+    }
+
+    override fun getItemCount(): Int {
+        return kitArrayList.size
+    }
+
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        val currentPos = kitArrayList[position]
+        Glide.with(context).load(currentPos.img).into(holder.img)
+        holder.tittle.text = currentPos.tittle.toString()
+        holder.itemView.setOnClickListener {
+            onClick.onClick(currentPos)
+        }
+    }
+
+
+    inner class ViewHolder(binding: KitsLayoutBinding) : RecyclerView.ViewHolder(binding.root) {
+        val img = binding.kitImg
+        val tittle = binding.kitTittle
+
+    }
+}
+
+
+interface OnClick{
+    fun onClick(kits: kits)
+}
