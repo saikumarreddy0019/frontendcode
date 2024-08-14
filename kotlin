@@ -1,0 +1,25 @@
+class MainActivity : AppCompatActivity(), OnClickplayerItem {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+        val playerListView : RecyclerView = findViewById(R.id.playerList)
+        val player1 = player(R.drawable.img,"Viratkohli","ToporderBatsman","10000cr","RightHandBatsman")
+        val player2 = player(R.drawable.img_1,"Rohitsharma","ToporderBatsman","50000cr","righthand")
+        val player3 = player(R.drawable.img_2,"Jaspritbumrah","FastBowler","40000cr","righthand")
+        val player4 =player(R.drawable.img_3,"HardikPandya","Alrounder","30000cr","righthand")
+
+        val playerData:ArrayList<player> = arrayListOf()
+        playerData.add(player1)
+        playerData.add(player2)
+        playerData.add(player3)
+        playerData.add(player4)
+        val adapter = playerAdapter(playerData,this)
+        playerListView.layoutManager= LinearLayoutManager(this)
+        playerListView.adapter = adapter
+    }
+
+    override fun onClick(play: player) {
+        val i = Intent(this,playerDetailactivity::class.java)
+        startActivity(i)
+    }
+}

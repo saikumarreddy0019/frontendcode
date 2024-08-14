@@ -1,0 +1,16 @@
+class playerDetailactivity : AppCompatActivity() {
+
+
+    @SuppressLint("MissingInflatedId")
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        setContentView(activity_player_detailactivity)
+       val playerImg : ImageView = findViewById(R.id.playerImg)
+        val playName : TextView = findViewById(R.id.playerName)
+        val playsal : TextView = findViewById(R.id.playerDetSalary)
+        val playRole : TextView = findViewById(R.id.playerDetRole)
+        val playbat : TextView = findViewById(R.id.playerDetBatter)
+
+    }
+}
