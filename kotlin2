@@ -10,7 +10,7 @@ class playerDetailactivity : AppCompatActivity() {
         val playName : TextView = findViewById(R.id.playerName)
         val playsal : TextView = findViewById(R.id.playerDetSalary)
         val playRole : TextView = findViewById(R.id.playerDetRole)
-        val playbat : TextView = findViewById(R.id.playerDetBatter)
+        val playball : TextView = findViewById(R.id.playerDetBatter)
 
     }
 }
